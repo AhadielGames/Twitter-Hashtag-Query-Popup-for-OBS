@@ -1,4 +1,4 @@
-
+<!-- Code adapted from work by https://www.reddit.com/user/dartvalince offered freely, thus this is public and free -->
 <html>
 	<head>
 		<title>My Stream Animated Panels</title>
