@@ -85,11 +85,10 @@ $response = $twitter->setGetfield($getfield)
              ->performRequest();
 			 
 $response = json_decode($response, true);
-//$newresponse = $response;
 
 	foreach($response['statuses'] as $tweet)
 	{
-		if($newresponse != $response)
+		if($oldresponse != $response)
 		{
 			$name = $tweet['user']['name'];
 			$text = $tweet['text'];
@@ -102,31 +101,17 @@ $response = json_decode($response, true);
 				<div="reminderContentText">
 					<span>'. $text .'</span>
 				</div>
-			</div><br /><br />';
+			</div><br /><br /></div>';
 
 			//echo "$text <br />";
 			//echo "<br /><br />";
 		}
-		$newresponse = $response;
+		$oldresponse = $response;
 	}
 
 //echo "<pre>". print_r($response) ."</pre>";
 ?>
-		<!--<div id="reminderContainer">
-			<div id="reminderHeader">
-				<span>Reminder:</span>
-			</div>
-
-			<div id="reminderContent">
-				<image id="twitchLogo" src="images\twitchLogo.png">
-				<div="reminderContentText">
-					<span>
-						
-
-
-					</span>
-				</div>
-			</div>-->
-		</div>
+		
+		
 	</body>
 </html>
