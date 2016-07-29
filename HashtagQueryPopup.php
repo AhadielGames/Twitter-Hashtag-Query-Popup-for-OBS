@@ -1,8 +1,8 @@
-<!-- Code adapted from work by https://www.reddit.com/user/dartvalince offered freely, thus this is public and free -->
+
 <html>
 	<head>
 		<title>My Stream Animated Panels</title>
-		<meta http-equiv="refresh" content="10">
+		<meta http-equiv="refresh">
 		<style>
 			@font-face {
 				font-family: 'Dolce Vita';
@@ -61,6 +61,7 @@
 		</style>		
 	</head>
 	<body>
+	
 	<?php
 ini_set('display_errors', 1);
 ini_set('max_execution_time',0);
@@ -68,10 +69,10 @@ ini_set('max_execution_time',0);
 require_once('TwitterAPIExchange.php');
 /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
 $settings = array(
-    'oauth_access_token' => "[ENTER YOURS HERE]",
-    'oauth_access_token_secret' => "[ENTER YOURS HERE]",
-    'consumer_key' => "[ENTER YOURS HERE]",
-    'consumer_secret' => "[ENTER YOURS HERE]"
+    'oauth_access_token' => "4496519955-DTunXyzyLcj8nQuQrxzwHX0RXnIBDLf8QOs9brG",
+    'oauth_access_token_secret' => "s11I85SuZqQDW5lZVUmmvd5CF1ViawxPLaIDu6cxYPRET",
+    'consumer_key' => "rZZGPGW7CI5ZP0L6i0fl57oqA",
+    'consumer_secret' => "7Dqq8KRVV2mztXmgNlx0FlKETACWCarArnasMhHrOJKgQ1NTKS"
 );
 
 /** Perform a GET request and echo the response **/
@@ -85,19 +86,22 @@ $response = $twitter->setGetfield($getfield)
              ->performRequest();
 			 
 $response = json_decode($response, true);
+//$newresponse = $response;
 
 	foreach($response['statuses'] as $tweet)
 	{
-		if($oldresponse != $response)
+		if($newresponse != $response)
 		{
 			$name = $tweet['user']['name'];
 			$text = $tweet['text'];
+			$profilePic = $tweet['user']['screen_name'];
+			
 			echo '<div id="reminderContainer">
 			<div id="reminderHeader">
 				<span>' . $name . '</span>
 			</div> 
 			<div id="reminderContent">
-				<image id="twitchLogo" src="images\twitchLogo.png">
+				<image id="twitchLogo" src="https://twitter.com/' . $profilePic . '/profile_image?size=original">
 				<div="reminderContentText">
 					<span>'. $text .'</span>
 				</div>
@@ -106,12 +110,26 @@ $response = json_decode($response, true);
 			//echo "$text <br />";
 			//echo "<br /><br />";
 		}
-		$oldresponse = $response;
+		$newresponse = $response;
 	}
 
-//echo "<pre>". print_r($response) ."</pre>";
+echo '<pre>'. print_r($response) .'</pre>';
 ?>
-		
-		
+		<!--<div id="reminderContainer">
+			<div id="reminderHeader">
+				<span>Reminder:</span>
+			</div>
+
+			<div id="reminderContent">
+				<image id="twitchLogo" src="images\twitchLogo.png">
+				<div="reminderContentText">
+					<span>
+						
+
+
+					</span>
+				</div>
+			</div>
+		</div>-->
 	</body>
 </html>
