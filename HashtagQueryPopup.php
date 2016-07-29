@@ -69,10 +69,10 @@ ini_set('max_execution_time',0);
 require_once('TwitterAPIExchange.php');
 /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
 $settings = array(
-    'oauth_access_token' => "4496519955-DTunXyzyLcj8nQuQrxzwHX0RXnIBDLf8QOs9brG",
-    'oauth_access_token_secret' => "s11I85SuZqQDW5lZVUmmvd5CF1ViawxPLaIDu6cxYPRET",
-    'consumer_key' => "rZZGPGW7CI5ZP0L6i0fl57oqA",
-    'consumer_secret' => "7Dqq8KRVV2mztXmgNlx0FlKETACWCarArnasMhHrOJKgQ1NTKS"
+    'oauth_access_token' => "[enter yours here]",
+    'oauth_access_token_secret' => "[enter yours here]",
+    'consumer_key' => "[enter yours here]",
+    'consumer_secret' => "[enter yours here]"
 );
 
 /** Perform a GET request and echo the response **/
